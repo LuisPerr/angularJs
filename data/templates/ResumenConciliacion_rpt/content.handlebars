@@ -1,0 +1,300 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<style>
+    .txtcenter {
+        text-align: center;
+    }
+    
+    .logoImagen {
+        width: 60%;
+        height: 60&;
+    }
+    
+    .ajustar {
+        width: 90px;
+        float: left;
+        white-space: pre;
+        /* CSS 2.0 */
+        white-space: pre-wrap;
+        /* CSS 2.1 */
+        white-space: pre-line;
+        /* CSS 3.0 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla */
+        white-space: -hp-pre-wrap;
+        /* HP */
+        word-wrap: break-word;
+        /* IE 5+ */
+    }
+    
+    .ajustarLargo {
+        width: 230px;
+        float: left;
+        white-space: pre;
+        /* CSS 2.0 */
+        white-space: pre-wrap;
+        /* CSS 2.1 */
+        white-space: pre-line;
+        /* CSS 3.0 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla */
+        white-space: -hp-pre-wrap;
+        /* HP */
+        word-wrap: break-word;
+        /* IE 5+ */
+    }
+    
+    .ajustarPoliza {
+        width: 350px;
+        float: left;
+        white-space: pre;
+        /* CSS 2.0 */
+        white-space: pre-wrap;
+        /* CSS 2.1 */
+        white-space: pre-line;
+        /* CSS 3.0 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla */
+        white-space: -hp-pre-wrap;
+        /* HP */
+        word-wrap: break-word;
+        /* IE 5+ */
+    }
+    
+    .txtderecha {
+        text-align: right;
+    }
+    
+    td {
+        font-size: 12px;
+    }
+    
+    th {
+        font-size: 13px;
+    }
+    .alto{
+        height: 60px;
+    }
+    .titulo{
+        font-size: 13px;
+    }
+    .txtcontenido{
+        font-size: 12px;
+    }
+</style>
+<div class="col-xs-12">
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th rowspan="2">
+                <img src="https://lh3.googleusercontent.com/-2oJBxGUErPk/VRmjsWiCHMI/AAAAAAAAABI/qWesfOg39do/w800-h800/Logo%2BGrupo%2BAndrade%2BCompleto.jpg" alt="Sin Imagen" class="logoImagen">
+            </th>
+            <th class="txtcenter">{{titulo}}
+                <br>{{titulo2}}</th>
+        </tr>
+        <tr>
+            <th class="txtcenter">{{titulo3}}</th>
+        </tr>
+    </thead>
+</table>
+<table class="table table-striped table-hover table-bordered">
+    <tbody>
+        <tr>
+            <td class="ajustar" style="background-color: #F1EFEF !important;">EMPRESA:</td>
+            <td style="width: 320px;" class="txtcenter">{{empresa}}</td>
+            <td class="ajustarLargo" style="background-color: #F1EFEF !important;">FECHA DE ELABORACIÓN:</td>
+            <td class="txtcenter">{{formatoFecha fechaElaboracion}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-striped table-hover table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2" class="ajustarLargo" style="background-color: #F1EFEF !important;" nowrap>CONCILIACIÓN BANCARIA:</td>
+            <td class="txtcenter">{{conciliacionBancaria}}</td>
+            <td style="background-color: #F1EFEF !important;">CHA:</td>
+            <td class="txtcenter">{{formatoFecha chequera}}</td>
+            <td style="background-color: #F1EFEF !important;">BANCO CTA:</td>
+            <td class="txtcenter">{{bancoCuenta}}</td>
+        </tr>
+        <tr>
+            <td class="ajustar" style="background-color: #F1EFEF !important;">CLABE:</td>
+            <td colspan="2" class="txtcenter">{{clabe}}</td>
+            <td style="background-color: #F1EFEF !important;">CTA CONTABLE:</td>
+            <td colspan="3" class="txtcenter">{{cuentaContable}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-striped table-hover table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2" class="txtcenter titulo" style="background-color: #F1EFEF !important;">RESUMEN</td>
+        </tr>
+        <tr>
+            <td class="ajustar" nowrap>SALDO SEGÚN ESTADO DE CUENTA BANCARIO</td>
+            <td class="txtderecha">$ {{formatoMoney estadoCuenta '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td class="ajustar" nowrap>ABONOS EN CONTABILIDAD NO CONSIDERADOS POR EL BANCO (-)</td>
+            <td class="txtderecha">$ {{formatoMoney aCNB '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td class="ajustar" nowrap>ABONOS DEL BANCO NO CONSIDERADOS POR CONTABILIDAD (-)</td>
+            <td class="txtderecha">$ {{formatoMoney aBNC '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td class="ajustar" nowrap>CARGOS DEL BANCO NO CONSIDERADOS POR CONTABILIDAD (+)</td>
+            <td class="txtderecha">$ {{formatoMoney cCNB '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td class="ajustar" nowrap>CARGOS EN CONTABILIDAD NO CONSIDERADOS POR EL BANCO (+)</td>
+            <td class="txtderecha">$ {{formatoMoney cBNC '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td class="ajustar" nowrap>SALDO SEGÚN CONCILIACION</td>
+            <td class="txtderecha">$ {{formatoMoney saldoConciliacion '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td>SALDO SEGÚN CONTABILIDAD</td>
+            <td class="txtderecha">$ {{formatoMoney saldoContabilidad '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td>DIFERENCIA</td>
+            <td class="txtderecha">$ {{formatoMoney diferencia '2' ',.'}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th style="background-color: #F1EFEF !important;">CONCEPTO</th>
+            <th style="background-color: #F1EFEF !important;">FECHA</th>
+            <th style="background-color: #F1EFEF !important;">REFERENCIA</th>
+            <th style="background-color: #F1EFEF !important;">ABONO</th>
+            <th style="background-color: #F1EFEF !important;">CARGO</th>
+            <th style="background-color: #F1EFEF !important;">TOTAL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4">SALDO SEGÚN ESTADO DE CUENTA BANCARIO</td>
+            <td></td>
+            <td class="txtderecha" nowrap>$ {{formatoMoney estadoCuenta '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <th colspan="4">ABONOS EN CONTABILIDAD NO CONSIDERADOS POR EL BANCO (-)</th>
+            <td></td>
+            <td class="txtderecha" nowrap>$ {{formatoMoney aCNB '2' ',.'}}</td>
+        </tr>
+        {{#each DetalleAbonosContables}}
+        <tr>
+            <td>{{MOV_CONCEPTO}}</td>
+            <td>{{formatoFecha MOV_FECHOPE}}</td>
+            <td>{{MOV_REFERENCIA}}</td>
+            <td>{{MOV_HABER}}</td>
+            <td>{{MOV_DEBE}}</td>
+            
+        </tr>
+        {{/each}}
+        <tr>
+            <th colspan="4">CARGOS EN EDO CTA NO CONSIDERADOS POR CONTABILIDAD (+)</th>
+            <td></td>
+            <td class="txtderecha" nowrap>$ {{formatoMoney cBNC '2' ',.'}}</td>
+        </tr>
+        {{#each DetalleCargoBancario}}
+        <tr>
+            <td>{{CONSEPTO}}</td>
+            <td>{{FECHAOP}}</td>
+            <td>{{REFERENCIA}}</td>
+            <td>0</td>
+            <td>{{IMPORTE}}</td>
+            
+        </tr>
+        {{/each}}
+        <tr>
+            <th colspan="4">ABONOS EN EDO CTA NO CONSIDERADOS POR CONTABILIDAD (-)</th>
+            <td></td>
+            <td class="txtderecha" nowrap>$ {{formatoMoney aBNC '2' ',.'}}</td>
+        </tr>
+        {{#each DetalleAbonosBancarios}}
+        <tr>
+             <td>{{CONSEPTO}}</td>
+            <td>{{FECHAOP}}</td>
+            <td>{{REFERENCIA}}</td>
+            <td>{{IMPORTE}}</td>
+            <td>0</td>
+            
+        </tr>
+        {{/each}}
+        <tr>
+            <th colspan="4">CARGOS EN CONTABILIDAD NO CONSIDERADOS POR EL BANCO (+)</th>
+            <td></td>
+            <td class="txtderecha" nowrap>$ {{formatoMoney cCNB '2' ',.'}}</td>
+        </tr>
+        {{#each DetalleCargosContables}}
+        <tr>
+            <td>{{MOV_CONCEPTO}}</td>
+            <td>{{formatoFecha MOV_FECHOPE}}</td>
+            <td>{{MOV_REFERENCIA}}</td>
+            <td>{{MOV_HABER}}</td>
+            <td>{{MOV_DEBE}}</td>
+            
+        </tr>
+        {{/each}}
+        <tr></tr>
+        <tr>
+            <td colspan="6" class="txtcenter titulo" style="background-color: #F1EFEF !important;">RESULTADO</td>
+        </tr>
+        <tr>
+            <td colspan="4" class="txtderecha">SALDO SEGÚN CONCILIACIÓN</td>
+            <td colspan="2" class="txtderecha" nowrap>$ {{formatoMoney saldoConciliacion '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td colspan="4" class="txtderecha">SALDO SEGÚN CONTABILIDAD</td>
+            <td colspan="2" class="txtderecha" nowrap>$ {{formatoMoney saldoContabilidad '2' ',.'}}</td>
+        </tr>
+        <tr>
+            <td colspan="4" class="txtderecha">DIFERENCIA</td>
+            <td colspan="2" class="txtderecha" nowrap>$ {{formatoMoney diferencia '2' ',.'}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+{{#each firmas}}
+<div class="col-xs-4">
+    <div class="list-group">
+        <div class="list-group-item" style="background-color: #F1EFEF !important;">
+            <h4 class="list-group-item-heading titulo">{{titulo}}</h4>
+        </div>
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading  alto"></h4>
+            <p class="list-group-item-text txtcenter txtcontenido">{{nombre}}</p>
+        </div>
+        <div class="list-group-item">
+            <p class="list-group-item-text txtcenter txtcontenido">NOMBRE Y FIRMA</p>
+        </div>
+        <div class="list-group-item">
+            <p class="list-group-item-text txtcontenido">FECHA:{{fecha}}</p>
+        </div>
+    </div>
+</div>
+{{/each}}

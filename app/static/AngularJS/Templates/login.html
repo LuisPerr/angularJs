@@ -1,0 +1,22 @@
+﻿<link rel="stylesheet" href="css/login/style.css">
+<div ng-init="init()">
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+                <img class="logo-name imglogo" src="images/logoa.png" alt="No se encontro la imagen">
+                <br><br>
+            </div>
+            
+            <form class="m-t" role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" ng-model="usuario">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Contraseña" ng-model="contrasena">
+                </div>
+                <button type="submit" class="btn btn-success block full-width m-b" ng-click="prueba()">Login</button>
+            </form>
+        </div>
+        
+    </div>
+</div>

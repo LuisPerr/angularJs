@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Portal de Tramites</title>
+    <meta name="description" content="description project">
+    <meta name="author" content="name" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+ 
+    <!--Librerias necesarias para la función leer archivos xlsx-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.1/xlsx.full.min.js"></script>
+    <script src="http://oss.sheetjs.com/js-xlsx/jszip.js"></script>
+    
+    <!--Hojas de estilos-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/toastr.css" rel="stylesheet" />
+    <link href="css/spinner/spinner.css" rel="stylesheet">
+    <link href="js/libs/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="js/bootstrap-filestyle.min.js">
+    <link href="css/datepicker3.css" rel="stylesheet">
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="css/tab.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo-icons.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/themify-icons/themify-icons.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/tesoreria.css"> -->
+    <link href="plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="css/colorpicker.css" rel="stylesheet">
+</head>
+
+<body ng-app="registrationModule" ng-controller="mainController" ng-init="init()">
+    <div id="container" class="effect aside-float aside-bright mainnav-sm">
+        <!--NAVBAR-->
+        <header id="navbar" class="hidePrint">
+            <div id="navbar-container" class="boxed" ng-show="ver">
+                <!--Brand logo & name-->
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/GAIcon.ico" alt="Nifty Logo"   class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text">Grupo Andrade</span>
+                        </div>
+                    </a>
+                </div>
+                <!--================================-->
+                <!--End brand logo & name-->
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="demo-pli-view-list">&nbsp; Portal Tramites</i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right" >
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <i class="demo-pli-male ic-user"></i>
+                                </span>
+                                <div class="username hidden-xs"> {{datosUsuario[0].nombre}}</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right panel-default">
+                                <!-- Dropdown footer -->
+                                <div class="pad-all text-right">
+                                    <a class="btn btn-primary" ng-click="salir()">
+                                       <i class="demo-pli-unlock"></i> Salirdd
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End user dropdown-->
+                        <li>
+                            <a href="#" class="aside-toggle navbar-aside-icon">
+                                <i class="pci-ver-dots"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--================================-->
+                <!--End Navbar Dropdown-->
+            </div>
+        </header>
+        <!--===================================================-->
+        <!--END NAVBAR-->
+        <div class="boxed">
+            <!--CONTENT CONTAINER-->
+            <!--===================================================-->
+            <div id="content-container">
+                <div ng-view></div>
+            </div>
+            <!--===================================================-->
+            <!--MAIN NAVIGATION-->
+            <!--===================================================-->
+            <nav id="mainnav-container" ng-show="ver">
+                <div id="mainnav" class="hidePrint">
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <!--Profile Widget-->
+                                <!--================================-->
+                                <div id="mainnav-profile" class="mainnav-profile">
+                                    <div class="profile-wrap">
+                                        <div class="pad-btm">
+                                            <!-- <span class="label label-success pull-right"></span> -->
+                                            <img class="img-circle img-sm img-border" src="img/profile-photos/1.png" alt="Profile Picture">
+                                        </div>
+                                        <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                                            <span class="pull-right dropdown-toggle">
+                                            </span>
+                                            <p class="mnp-name"> Luis</p>
+                                            <span class="mnp-desc">lgarcia</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <ul id="mainnav-menu" class="list-group">
+                                    <!--Category name-->
+                                    <li class="list-header">Navegación</li>
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="/otra">
+                                            <i class="glyphicon glyphicon-credit-card"></i>
+                                            <span class="menu-title">
+                                                <strong>Primero</strong>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="main">
+                                    <div></div>
+                                    <input type="hidden" id="lgnUser" value="[[ user.idUsuario ]]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--================================-->
+                    <!--End menu-->
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+        </div>
+        <!-- SCROLL PAGE BUTTON -->
+        <!--===================================================-->
+        <button class="scroll-top btn hidePrint">
+            <i class="pci-chevron chevron-up"></i>
+        </button>
+        <!--===================================================-->
+    </div>
+
+    <!-- <div class="cargando">
+        <div class="contenedor">
+            <img src="/images/logoa.png" width="200">
+            <br>
+            <img src="/images/loading.gif">
+        </div>
+    </div> -->
+
+    <div class="no-success">
+        <div class="contenedor">
+            <img src="/images/logoa.png" width="200">
+            <h2>Tesoreria</h2>
+            <p>Favor de entrar desde Control de Aplizaciones</p>
+        </div>
+    </div>
+
+    <style type="text/css">
+        .no-success, .cargando{
+            /*display: none;*/
+            width: 100%;
+            height: 100%;
+            background-color: #ecf0f5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1024;
+        }
+
+        .cargando .contenedor,
+        .no-success .contenedor{
+            width: 400px;
+            height: 200px;
+            margin: 15% auto;
+            text-align: center;
+        }
+
+        .no-success{
+            display: none;
+        }
+    </style>
+    
+    <!--Interface de usuario-->
+    <!-- Librerias Angular-->
+    <script src="js/tab.js"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/libs/angular/angular.min.js"></script>
+    <script src="js/libs/angular/angular-route.min.js"></script>
+    <script src="js/libs/angular/angular-local-storage.min.js"></script>
+    <script src="js/angular-filter.js"></script>
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/libs/toastr/toastr.min.js"></script>
+    <script src="js/demo/ui-panels.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/ui-bootstrap.js"></script>
+    <script src="js/ui-bootstrap-tpls.js"></script>
+    <!--NiftyJS [ RECOMMENDED ]-->
+    <script src="js/nifty.min.js"></script>
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="plugins/pace/pace.min.js"></script>
+    <script src="js/demo/nifty-demo.min.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/ui-grid.js"></script>
+    <link rel="stylesheet" href="css/ui-grid.css" type="text/css">
+    <!--Responsive table-->
+    <script src="plugins/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="js/demo/tables-datatables.js"></script>
+    <script src="js/libs/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/bootstrap-colorpicker-module.js"></script>
+
+    <!-- <script src="js/libs/navBar.js"></script>
+    <script src="js/libs/jsTree/jstree.min.js"></script>
+    <script src="js/libs/dropzone.min.js"></script> -->
+    <!--Funciones Comunes-->
+
+    <script src="confront.js"></script>
+    <script src="helpers.js"></script>
+    <!--Librerias de aplicación angular-->
+    <script src="AngularJS/registrationModule.js"></script>
+    
+    <!--Controllers y Repository-->
+    <script src="AngularJS/Main/mainController.js"></script>
+    <script src="AngularJS/login/loginController.js"></script>
+    <script src="AngularJS/login/loginRepository.js"></script>
+    <script src="AngularJS/home/homeController.js"></script>
+    <script src="AngularJS/registro/registroController.js"></script>
+</body> 
+
+</html>

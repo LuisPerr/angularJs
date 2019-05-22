@@ -1,0 +1,25 @@
+{{#xlsxAdd "xl/worksheets/sheet1.xml" "worksheet.sheetData[0].row"}}
+    
+    <row>
+        <c t="inlineStr"><is><t>Hello world</t></is></c>
+        <c><v>11</v></c>
+    </row>
+    
+{{/xlsxAdd}}
+
+
+{{#xlsxAddImage "test" "sheet1.xml" 3 3 6 6}}
+{#image logoA @encoding=base64}}
+{{/xlsxAddImage}}
+
+{{#xlsxReplace "xl/worksheets/sheet1.xml" "worksheet.mergeCells"}}
+    <mergeCells>
+        <mergeCell ref="D3:G7"/>
+    </mergeCells>
+     <mergeCells>
+        <mergeCell ref="H3:K7"/>
+    </mergeCells>
+{{/xlsxReplace}}
+
+
+{{{xlsxPrint}}}

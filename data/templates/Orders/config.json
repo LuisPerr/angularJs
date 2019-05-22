@@ -1,0 +1,17 @@
+{
+    "phantom": {
+        "waitForJS": true
+    },
+    "recipe": "html-to-xlsx",
+    "engine": "handlebars",
+    "scripts": [
+        {
+            "shortid": "BJX1Jw82ce"
+        }
+    ],
+    "shortid": "HJH11D83ce",
+    "modificationDate": {
+        "$$date": 1503338543327
+    },
+    "_id": "oWLNuewxcxcEhWEB"
+}
